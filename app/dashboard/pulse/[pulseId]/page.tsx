@@ -15,6 +15,13 @@ import { FillChart } from "@/components/dashboard/fill-chart";
 import { StatCard } from "@/components/dashboard/stat-card";
 import { cn } from "@/lib/utils";
 
+export async function generateMetadata(
+  props: PageProps<"/dashboard/pulse/[pulseId]">
+) {
+  const { pulseId } = await props.params;
+  return { title: `${pulseId} — Fostride Pulse` };
+}
+
 export default async function PulseDetailPage(
   props: PageProps<"/dashboard/pulse/[pulseId]">
 ) {

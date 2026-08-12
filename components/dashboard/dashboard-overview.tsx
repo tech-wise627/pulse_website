@@ -16,10 +16,17 @@ export function DashboardOverview({
   initialInstallations: InstallationWithLatestReading[];
 }) {
   const [installations, setInstallations] = useState(initialInstallations);
+  const [syncedInstallations, setSyncedInstallations] = useState(
+    initialInstallations
+  );
 
-  useEffect(() => {
+  // Reset local (realtime-patched) state when the server gives us a fresh
+  // fetch — done during render, not an effect, so it doesn't cost an extra
+  // commit. See https://react.dev/learn/you-might-not-need-an-effect
+  if (initialInstallations !== syncedInstallations) {
+    setSyncedInstallations(initialInstallations);
     setInstallations(initialInstallations);
-  }, [initialInstallations]);
+  }
 
   useEffect(() => {
     const pulseIds = new Set(initialInstallations.map((i) => i.pulse_id));
@@ -49,7 +56,6 @@ export function DashboardOverview({
     return () => {
       supabase.removeChannel(channel);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialInstallations]);
 
   const statuses = installations.map((installation) =>

@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import { getSession } from "@/lib/data/session";
 import { AppShell } from "@/components/dashboard/app-shell";
 import { logout } from "@/lib/actions/auth";
 import { Button } from "@/components/ui/button";
+
+export const metadata: Metadata = {
+  title: "Overview — Fostride Pulse",
+};
 
 export default async function DashboardLayout({
   children,
