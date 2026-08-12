@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --surface-hover: #f1f5f9;
+  --foreground: #0f172a;
+  --muted: #64748b;
+  --muted-surface: #f1f5f9;
+  --border: #e2e8f0;
+
+  --brand: #0e7a4f;
+  --brand-foreground: #ffffff;
+  --brand-hover: #0b6340;
+
+  --status-normal: #16a34a;
+  --status-normal-bg: #f0fdf4;
+  --status-normal-border: #bbf7d0;
+  --status-warning: #b45309;
+  --status-warning-bg: #fffbeb;
+  --status-warning-border: #fde68a;
+  --status-critical: #dc2626;
+  --status-critical-bg: #fef2f2;
+  --status-critical-border: #fecaca;
+  --status-unknown: #64748b;
+  --status-unknown-bg: #f1f5f9;
+  --status-unknown-border: #e2e8f0;
+
+  --ring: #0e7a4f;
+
+  --radius: 0.625rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-surface: var(--muted-surface);
+  --color-border: var(--border);
+
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-hover: var(--brand-hover);
+
+  --color-status-normal: var(--status-normal);
+  --color-status-normal-bg: var(--status-normal-bg);
+  --color-status-normal-border: var(--status-normal-border);
+  --color-status-warning: var(--status-warning);
+  --color-status-warning-bg: var(--status-warning-bg);
+  --color-status-warning-border: var(--status-warning-border);
+  --color-status-critical: var(--status-critical);
+  --color-status-critical-bg: var(--status-critical-bg);
+  --color-status-critical-border: var(--status-critical-border);
+  --color-status-unknown: var(--status-unknown);
+  --color-status-unknown-bg: var(--status-unknown-bg);
+  --color-status-unknown-border: var(--status-unknown-border);
+
+  --color-ring: var(--ring);
+  --radius-DEFAULT: var(--radius);
+
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-feature-settings: 'tnum' 1;
+}
+
+* {
+  border-color: var(--border);
+}
